@@ -1,0 +1,37 @@
+*.wav
+*.jpg
+*.ogg
+ble_probe*
+# Xcode
+xcuserdata/
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcsettings
+# Swift Package Manager
+build/
+swiftpm/
+Package.resolved
+# CocoaPods
+Pods/
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+# App Packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+# Temporary Files
+*.swp
+*.swo
+DS_Store
+.DS_Store
+.build/
