@@ -93,7 +93,7 @@ CoreML inference isn't available on the host Mac.
 ## Installation
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/sctg-development/ai-smart-glasses-e09-reverse.git
 cd e09_reverse
 
 # Debug build (fast to iterate)
