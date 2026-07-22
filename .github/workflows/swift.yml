@@ -21,4 +21,5 @@ jobs:
     - name: Run tests
       run: |
         export MISTRAL_API_KEY=${{secrets.MISTRAL_API_KEY}}
+        export MISTRAL_LANGUAGE=fr
         swift test -v
