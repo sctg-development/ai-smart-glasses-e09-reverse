@@ -8,6 +8,8 @@ voice-activated "Hi Luma"-style AI assistant.
 I did not find any information about theses glasses.
 I found a http only website from the manufacturer http://www.taiyang-keji.com/ProDetail.aspx?ProId=161 without any information.
 
+<img width="1972" height="1358" alt="image" src="https://github.com/user-attachments/assets/2fc053ad-b850-460b-bb2c-4c98da30d749" />
+
 ## Motivation
 
 Devices like these ship with a voice assistant wired to whatever cloud AI backend the
