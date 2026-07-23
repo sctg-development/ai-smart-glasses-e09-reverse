@@ -178,8 +178,7 @@ Sources/e09_reverse/
 ├── ONNXSileroVAD.swift           Silero-VAD backend using ONNX Runtime (fallback)
 └── Resources/                    Bundled Silero-VAD model files (.mlmodelc + .onnx)
 
-Tests/            XCTest unit tests for the VAD and MistralAI modules
-Examples/         Small standalone usage example for the MistralAI client
+Tests/            XCTest unit tests for the VAD and MistralAI module
 ```
 
 **Design principles used throughout:**
