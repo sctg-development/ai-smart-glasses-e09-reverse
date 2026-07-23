@@ -5,33 +5,41 @@ on:
     types: [published]
 
 jobs:
-  build-and-release:
-    name: Build and Release
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        arch: [arm64, x86_64]
-
+  build-arm64:
+    name: Build (Apple Silicon)
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v7
 
       - name: Build (Release)
-        run: |
-          if [ "${{ matrix.arch }}" = "arm64" ]; then
-            # Apple Silicon - build natively
-            swift build -c release
-            BINARY_PATH=".build/release/e09_reverse"
-          else
-            # x86_64 - cross-compile
-            swift build -c release -Xswiftc -target -Xswiftc x86_64-unknown-macosx
-            BINARY_PATH=".build/x86_64-unknown-macosx/release/e09_reverse"
-          fi
-          echo "BINARY_PATH=$BINARY_PATH" >> $GITHUB_ENV
+        run: swift build -c release
 
       - name: Create archive
         run: |
-          ARCHIVE_NAME="e09_reverse-${{ matrix.arch}}.zip"
-          zip -j "$ARCHIVE_NAME" "$BINARY_PATH"
+          ARCHIVE_NAME="e09_reverse-arm64.zip"
+          zip -j "$ARCHIVE_NAME" ".build/release/e09_reverse"
+          echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> $GITHUB_ENV
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ARCHIVE_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-x86_64:
+    name: Build (Intel)
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build (Release)
+        run: swift build -c release
+
+      - name: Create archive
+        run: |
+          ARCHIVE_NAME="e09_reverse-x86_64.zip"
+          zip -j "$ARCHIVE_NAME" ".build/release/e09_reverse"
           echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> $GITHUB_ENV
 
       - name: Upload release asset
