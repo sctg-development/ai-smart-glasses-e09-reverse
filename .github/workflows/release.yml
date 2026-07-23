@@ -7,7 +7,7 @@ on:
 jobs:
   build-and-release:
     name: Build and Release
-    runs-on: macos-15
+    runs-on: macos-latest
     strategy:
       matrix:
         arch: [arm64, x86_64]
